@@ -5,11 +5,10 @@
 
 .charts {
   display: flex;
-  flex-wrap: wrap;
   gap: 16px;
 }
 
-.account-status, .last-activities, .budget-tracker {
+.chart-section {
   flex: 1;
   border: 1px solid #ddd;
   padding: 16px;
@@ -18,6 +17,65 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-.activity, .budget-item {
-  margin-bottom: 8px;
+.account-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-label {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.status-value {
+  font-size: 24px;
+  color: #000;
+}
+
+.activity-details {
+  padding: 8px 16px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
+
+.row {
+  padding: 16px;
+}
+
+.mat-accordion {
+  width: 100%;
+}
+
+.mat-expansion-panel-header {
+  padding: 16px;
+}
+
+.activity-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.activity-description {
+  font-size: 18px;
+  color: #555;
+}
+
+.activity-details {
+  padding: 16px;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.budget-tracker, .chart-diagram {
+  flex: 1;
+}
+
+.chart-diagram {
+  /* Add your specific styles for the chart diagram here */
 }

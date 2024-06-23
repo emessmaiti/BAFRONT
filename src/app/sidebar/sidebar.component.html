@@ -1,48 +1,58 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="sidenav" [fixedInViewport]="true">
-    <div class="sidenav-header">
-      <button mat-icon-button (click)="toggleSidenav()">
-        <mat-icon>chevron_left</mat-icon>
-      </button>
-    </div>
-    <mat-nav-list>
-      <mat-list-item routerLink="/overview" routerLinkActive="active">
+    <mat-nav-list class="sidenav-nav-list">
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active">
         <button mat-button>
           <mat-icon class="menu-icon">dashboard</mat-icon>
           <span class="menu-text">Übersicht</span>
         </button>
-      </mat-list-item>
-      <mat-list-item routerLink="/transactions" routerLinkActive="active">
+      </a>
+      <a mat-list-item routerLink="/transaktionen" routerLinkActive="active">
         <button mat-button>
-        <mat-icon class="menu-icon">list</mat-icon>
+          <mat-icon class="menu-icon">list</mat-icon>
           <span class="menu-text">Transaktionen anzeigen</span>
         </button>
-      </mat-list-item>
-      <mat-list-item routerLink="/income" routerLinkActive="active">
+      </a>
+      <a mat-list-item routerLink="/einnahmen" routerLinkActive="active">
         <button mat-button>
           <mat-icon class="menu-icon">attach_money</mat-icon>
           <span class="menu-text">Einnahmen</span>
         </button>
-      </mat-list-item>
-      <mat-list-item routerLink="/expenses" routerLinkActive="active">
+      </a>
+      <a mat-list-item routerLink="/ausgaben" routerLinkActive="active">
         <button mat-button>
-        <mat-icon class="menu-icon">money_off</mat-icon>
+          <mat-icon class="menu-icon">money_off</mat-icon>
           <span class="menu-text">Ausgaben</span>
         </button>
-      </mat-list-item>
-      <mat-list-item routerLink="/goals" routerLinkActive="active">
+      </a>
+      <a mat-list-item routerLink="/ziel" routerLinkActive="active">
         <button mat-button>
-        <mat-icon class="menu-icon">trending_up</mat-icon>
-        <span class="menu-text">Finanzielle Ziel</span>
+          <mat-icon class="menu-icon">trending_up</mat-icon>
+          <span class="menu-text">Finanzielle Ziel</span>
         </button>
-      </mat-list-item>
+      </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar color="primary" class="mat-elevation-z3">
       <button mat-icon-button (click)="toggleSidenav()">
         <mat-icon>{{ opened ? 'menu_open' : 'menu' }}</mat-icon>
       </button>
+      <span class="spacer"></span>
+      <button mat-icon-button>
+        <mat-icon>notifications</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <span>Max Mustermann</span>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Benutzerdaten</button>
+        <button mat-menu-item>Log out</button>
+      </mat-menu>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

@@ -1,0 +1,13 @@
+<!-- src/silent-refresh.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Silent Refresh</title>
+</head>
+<body>
+<script>
+  window.opener.postMessage('changed', window.location.origin);
+</script>
+</body>
+</html>

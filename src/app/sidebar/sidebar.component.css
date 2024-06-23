@@ -3,32 +3,34 @@
 }
 
 .sidenav {
-  width: 250px;
-  transition: width 0.3s;
+  width: 240px;
+  padding-top: 20px; /* Adjust to push the menu items down */
+}
+
+.sidenav-nav-list {
+  padding-top: 45px; /* Pushes the menu items down */
 }
 
 .sidenav-header {
   display: flex;
-  justify-content: flex-end;
-  padding: 10px;
-}
-
-mat-sidenav[mode="side"] {
-  box-shadow: 3px 0 6px rgba(0, 0, 0, 0.16);
-}
-
-mat-list-item {
-  display: flex;
   align-items: center;
+  justify-content: flex-end;
   padding: 10px;
 }
 
 .menu-icon {
   margin-right: 10px;
-  font-size: 24px;
 }
 
 .menu-text {
-  font-size: 16px;
-  flex: 1;
+  font-weight: 500;
+  white-space: nowrap; /* Ensure text doesn't wrap */
+}
+
+.topbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.spacer {
+  flex: 1 1 auto;
 }

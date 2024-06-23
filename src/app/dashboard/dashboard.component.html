@@ -1,24 +1,59 @@
+<mat-grid-list cols="3" rowHeight="100px">
+  <mat-grid-tile>
+    <div class="account-status">
+      <div class="status-label">Kontostand:</div>
+      <div class="status-value">{{ kontostand | currency:'EUR' }}</div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="account-status">
+      <div class="status-label">Einnahmen:</div>
+      <div class="status-value">{{ einnahmenSumme | currency:'EUR' }}</div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="account-status">
+      <div class="status-label">Ausgaben:</div>
+      <div class="status-value">{{ ausgabenSumme | currency:'EUR' }}</div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
 <div class="dashboard">
   <h1>Alle Transaktionen</h1>
   <div class="charts">
-    <div class="account-status">
-      <div class="balance">Kontostand: +300 €</div>
-      <div class="income">Einnahme: +600 €</div>
-      <div class="expenses">Ausgaben: -300 €</div>
+    <div class="chart-section" id="hist">
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false"
+                             *ngFor="let aktivitaet of aktivitaeten">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="activity-title">
+              {{ aktivitaet.bezeichnung }}
+            </mat-panel-title>
+            <mat-panel-description class="activity-description">
+              {{ aktivitaet.betrag | currency : 'EUR' }}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="activity-details">
+            <p><strong>Datum:</strong> {{aktivitaet.datum | date}}</p>
+            <p><strong>Beschreibung:</strong> {{aktivitaet.beschreibung}}</p>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
     </div>
-    <div class="last-activities">
-      <h2>Letzte Aktivitäten</h2>
-      <div class="activity">Transaktion n -60€</div>
-      <div class="activity">Transaktion n-1 -10€</div>
-      <div class="activity">Transaktion n-2 -5€</div>
-      <div class="activity">Transaktion n-3 +10€</div>
-    </div>
-    <div class="budget-tracker">
+
+    <div class="chart-section budget-tracker">
       <h2>Budget Tracker</h2>
-      <div class="budget-item">Sonstiges: 50€</div>
-      <div class="budget-item">Freizeit: 30€</div>
-      <div class="budget-item">Miete: 320€</div>
+      <div class="budget-item">Konto: {{ kontostand | currency:'EUR' }}</div>
+      <div class="budget-item">Ausgaben: {{ ausgabenSumme | currency:'EUR' }}</div>
+      <div class="budget-item">Einnahmen: {{ einnahmenSumme | currency:'EUR' }}</div>
       <div class="budget-item">Rest. & Bars: 50€</div>
+    </div>
+
+    <div class="chart-section chart-diagram">
+      <h2>Charts Diagramm</h2>
+      <!-- Placeholder for chart -->
     </div>
   </div>
 </div>

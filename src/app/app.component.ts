@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
+import {OAuthService} from "angular-oauth2-oidc";
+import {LoginService} from "./services/login.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,6 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Finanzuebersicht-Frontend';
+  title = 'Finanzübersicht-Frontend';
+
 }
