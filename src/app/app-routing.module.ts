@@ -6,15 +6,14 @@ import {AusgabenComponent} from "./ausgaben/ausgaben.component";
 import {FinanzzielComponent} from "./finanzziel/finanzziel.component";
 import {AuthGuard} from "./auth.guard";
 import {LoginComponent} from "./login/login.component";
-import {AuthCallbackComponent} from "./login/auth-callback.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'einnahmen', component: EinnahmenComponent },
-  { path: 'ausgaben', component: AusgabenComponent },
-  { path: 'ziel', component: FinanzzielComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'einnahmen', component: EinnahmenComponent, canActivate: [AuthGuard] },
+  { path: 'ausgaben', component: AusgabenComponent, canActivate: [AuthGuard] },
+  { path: 'ziel', component: FinanzzielComponent, canActivate: [AuthGuard] }
 
 ];
 

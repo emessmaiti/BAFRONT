@@ -30,7 +30,8 @@ import { FinanzzielComponent } from './finanzziel/finanzziel.component';
 import { BudgetComponent } from './budget/budget.component';
 import {AuthInterceptorService} from "./services/auth-interceptor.service";
 import { LoginComponent } from './login/login.component';
-import {AuthCallbackComponent} from "./login/auth-callback.component";
+import {LoginService} from "./services/login.service";
+import {AuthGuard} from "./auth.guard";
 
 @NgModule({
   declarations: [
@@ -43,7 +44,6 @@ import {AuthCallbackComponent} from "./login/auth-callback.component";
     FinanzzielComponent,
     BudgetComponent,
     LoginComponent,
-    AuthCallbackComponent  // Add this line
 
   ],
   imports: [
@@ -69,6 +69,8 @@ import {AuthCallbackComponent} from "./login/auth-callback.component";
     OAuthModule.forRoot()
   ],
   providers: [
+    LoginService,
+    AuthGuard,
     {
       provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true
     }
