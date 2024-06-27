@@ -45,10 +45,13 @@
 
     <div class="chart-section budget-tracker">
       <h2>Budget Tracker</h2>
-      <div class="budget-item">Konto: {{ kontostand | currency:'EUR' }}</div>
-      <div class="budget-item">Ausgaben: {{ ausgabenSumme | currency:'EUR' }}</div>
-      <div class="budget-item">Einnahmen: {{ einnahmenSumme | currency:'EUR' }}</div>
-      <div class="budget-item">Rest. & Bars: 50€</div>
+      <ng-container *ngFor="let budget of budgets">
+        <div class="budget-item">
+          <div>{{ budget.kategorie }}: {{ budget.betrag | currency:'EUR' }}</div>
+          <mat-progress-bar mode="determinate" [value]="getProgress(budget)"></mat-progress-bar>
+          <div>Restbetrag: {{ budget.restBetrag | currency:'EUR' }}</div>
+        </div>
+      </ng-container>
     </div>
 
     <div class="chart-section chart-diagram">

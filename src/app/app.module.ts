@@ -32,6 +32,7 @@ import {AuthInterceptorService} from "./services/auth-interceptor.service";
 import { LoginComponent } from './login/login.component';
 import {LoginService} from "./services/login.service";
 import {AuthGuard} from "./auth.guard";
+import {MatProgressBar, MatProgressBarModule} from "@angular/material/progress-bar";
 
 @NgModule({
   declarations: [
@@ -46,28 +47,29 @@ import {AuthGuard} from "./auth.guard";
     LoginComponent,
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatListModule,
-    MatMenuModule,
-    MatSidenavModule,
-    MatCardModule,
-    MatExpansionModule,
-    MatGridListModule,
-    MatFormFieldModule,
-    MatDatepickerModule,
-    MatSelectModule,
-    MatNativeDateModule,
-    MatInputModule,
-    OAuthModule.forRoot()
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        MatListModule,
+        MatMenuModule,
+        MatSidenavModule,
+        MatCardModule,
+        MatExpansionModule,
+        MatGridListModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        MatSelectModule,
+        MatNativeDateModule,
+        MatInputModule,
+        OAuthModule.forRoot(),
+        MatProgressBarModule
+    ],
   providers: [
     LoginService,
     AuthGuard,
