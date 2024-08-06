@@ -1,0 +1,65 @@
+<div class="budget-form">
+  <mat-card class="form-card">
+    <mat-card-title>Neues Budget hinzufügen</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="budgetForm" (ngSubmit)="addBudget()">
+        <mat-form-field appearance="fill">
+          <mat-label>Kategorie</mat-label>
+          <mat-select formControlName="kategorie">
+            <mat-option value="LEBENSMITTEL">LEBENSMITTEL</mat-option>
+            <mat-option value="MIETE">MIETE</mat-option>
+            <mat-option value="TRANSPORT">TRANSPORT</mat-option>
+            <mat-option value="UNTERHALTUNG">UNTERHALTUNG</mat-option>
+            <mat-option value="BILDUNG">BILDUNG</mat-option>
+            <mat-option value="GESUNDHEIT">GESUNDHEIT</mat-option>
+            <mat-option value="VERSICHERUNGEN">VERSICHERUNGEN</mat-option>
+            <mat-option value="KLEIDUNG">KLEIDUNG</mat-option>
+            <mat-option value="REISEN">REISEN</mat-option>
+            <mat-option value="FREIZEIT">FREIZEIT</mat-option>
+            <mat-option value="INVESTITIONEN">INVESTITIONEN</mat-option>
+            <mat-option value="SONSTIGES">SONSTIGES</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Startdatum</mat-label>
+          <input matInput [matDatepicker]="startPicker" formControlName="startDatum">
+          <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+          <mat-datepicker #startPicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Enddatum</mat-label>
+          <input matInput [matDatepicker]="endPicker" formControlName="endDatum">
+          <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+          <mat-datepicker #endPicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Budget</mat-label>
+          <input matInput formControlName="betrag" type="number">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Hinzufügen</button>
+      </form>
+
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="budget-list">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let budget of budgets">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ budget.kategorie }}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{ budget.betrag | currency:'EUR' }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div>
+        <p><strong>Startdatum:</strong> {{ budget.startDatum | date }}</p>
+        <p><strong>Enddatum:</strong> {{ budget.endDatum | date }}</p>
+        <p><strong>Restbetrag:</strong> {{ budget.restBetrag | currency:'EUR' }}</p>
+        <button mat-button (click)="deleteBudget(budget.id)">Löschen</button>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

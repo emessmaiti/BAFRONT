@@ -1,0 +1,99 @@
+.dashboard {
+  padding: 16px;
+  background-color: #f4f6f8;
+}
+
+.dashboard {
+  padding: 16px;
+  background-color: #f4f6f8;
+}
+
+.charts {
+  display: flex;
+  gap: 16px;
+}
+
+.chart-section {
+  flex: 1;
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.account-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-label {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.status-value {
+  font-size: 24px;
+  color: #000;
+}
+
+
+.form-and-history {
+  display: flex;
+  gap: 16px;
+}
+
+.form-section, .history-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-card, .accordion {
+  flex: 1;
+}
+
+.form-card {
+  padding: 16px;
+}
+
+mat-form-field {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+}
+
+.accordion {
+  margin-top: 16px;
+}
+
+mat-expansion-panel {
+  margin-bottom: 16px;
+}
+
+mat-card-content p {
+  margin: 8px 0;
+}
+
+.activity-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.mat-accordion {
+  width: 100%;
+}
+
+.activity-details {
+  padding: 8px 16px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
+
+.activity-description {
+  font-size: 18px;
+  color: #555;
+}

@@ -1,0 +1,39 @@
+.form {
+  padding: 56px;
+  background-color: #f4f6f8;
+  shape-image-threshold: inherit;
+  font-size: medium;
+  display: flex;
+}
+
+mat-form-field{
+  display: block;
+  width: 700px;
+}
+
+.charts {
+
+  flex-wrap: wrap;
+  flex-basis: 700px;
+  gap: 16px;
+  margin: 16px;
+}
+
+.account-status, .last-activities, .budget-tracker {
+  flex: 1;
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.activity, .budget-item {
+  margin-bottom: 8px;
+}
+
+
+#hist{
+  width: 1800px;
+  margin-bottom: 20px;
+}

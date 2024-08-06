@@ -1,0 +1,70 @@
+<mat-grid-list cols="1" rowHeight="1:0.06">
+  <mat-grid-tile>
+    <div class="account-status">
+      <div class="status-label">Kontostand:</div>
+      <div class="status-value">{{ einnahmenSumme | currency:'EUR' }}</div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<div class="dashboard">
+  <div class="form-and-history">
+    <div class="form-section">
+      <mat-card class="form-card">
+        <mat-card-title>Neue Einnahme hinzufügen</mat-card-title>
+        <mat-card-content>
+          <form [formGroup]="einnahmeForm" (ngSubmit)="addEinnahme()">
+            <mat-form-field appearance="fill">
+              <mat-label>Einnahme Titel</mat-label>
+              <input matInput formControlName="bezeichnung">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Betrag</mat-label>
+              <input matInput formControlName="betrag" type="number">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Datum</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="datum">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Einnahme Type</mat-label>
+              <mat-select formControlName="einnahmeKategorie">
+                <mat-option value="GEHALT">GEHALT</mat-option>
+                <mat-option value="BAFOEG">BAFOEG</mat-option>
+                <mat-option value="GESCHENKE">GESCHENKE</mat-option>
+                <mat-option value="INVESTITIONEN">INVESTITIONEN</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Beschreibung</mat-label>
+              <textarea matInput formControlName="beschreibung"></textarea>
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Hinzufügen</button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="chart-section" id="hist">
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false"
+                             *ngFor="let einnahme of einnahmen ">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="activity-title">
+              {{ einnahme.bezeichnung }}
+            </mat-panel-title>
+            <mat-panel-description class="activity-description">
+              {{ einnahme.betrag | currency : 'EUR' }}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="activity-details">
+            <p><strong>Datum:</strong> {{einnahme.datum | date}}</p>
+            <p><strong>Beschreibung:</strong> {{einnahme.beschreibung}}</p>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>
