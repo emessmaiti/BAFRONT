@@ -7,6 +7,12 @@
       "^/api": ""
     }
   },
+
+  "/logout": {
+    "target": "http://localhost:8085",
+    "secure": false
+  },
+
   "/google": {
     "target": "https://accounts.google.com",
     "secure": true,

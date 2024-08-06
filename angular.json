@@ -75,7 +75,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Finanzuebersicht-Frontend:build:production"
+              "buildTarget": "Finanzuebersicht-Frontend:build:production",
+              "proxyConfig": "proxy.conf.json"
             },
             "development": {
               "buildTarget": "Finanzuebersicht-Frontend:build:development"

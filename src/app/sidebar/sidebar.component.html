@@ -51,13 +51,13 @@
       <button mat-icon-button>
         <mat-icon>account_circle</mat-icon>
       </button>
-      <span>Max Mustermann</span>
+      <span>{{ getFullName() }}</span>
       <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item>Benutzerdaten</button>
-        <button mat-menu-item>Log out</button>
+        <button mat-menu-item (click)="logout()">Log out</button>
       </mat-menu>
     </mat-toolbar>
     <router-outlet></router-outlet>
